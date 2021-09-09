@@ -3,8 +3,28 @@
 <head>
     <%- include('partials/head') %>
     <title>Chesslink</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    daskadsk
+    <div id="wrapper">
+        <div class="wave spacer"></div>
+            <div class="login">
+                <p class='display-4'>Sign In</p>
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="button" class="btn btn-outline-warning">Sign In</button>
+                </form><br/>
+                <a href="/signup" class="right">Sign Up</a>
+                <a href="/pass" class="left">Forgot a password?</a>
+            </div>
+        <div class="wave2 spacer"></div>
+    </div>
 </body>
 </html>

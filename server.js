@@ -7,7 +7,8 @@ const helmet = require('helmet')
 const app = express()
 
 //Require routes
-const main = require('./routes/app.js')
+const main = require('./routes/app')
+const users = require('./routes/users')
 
 app.use(cors())
 app.use(helmet({
@@ -26,6 +27,7 @@ app.use(helmet({
     },
 }))
 app.use(compression())
+app.use(express.json())
 app.use(helmet.hidePoweredBy());
 app.set('views', path.join(__dirname,"views"))
 app.set('view engine','ejs')
@@ -33,6 +35,7 @@ app.use(express.static(path.join(__dirname,"public")));
 
 //Re-route
 app.use('/', main)
+app.use('/api/users', users)
 
 
 
