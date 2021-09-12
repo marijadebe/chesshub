@@ -10,16 +10,18 @@
   "author": "Tomáš Buriánek",
   "license": "MIT",
   "devDependencies": {
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.12"
   },
   "dependencies": {
     "compression": "^1.7.4",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "helmet": "^4.6.0",
     "mysql2": "^2.3.0",
+    "nodemailer": "^6.6.3",
     "socket.io": "^4.2.0"
   }
 }

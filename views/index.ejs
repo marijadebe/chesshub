@@ -8,22 +8,27 @@
 <body>
     <div id="wrapper">
         <div class="wave spacer"></div>
+        <div id="flexb">
             <div class="login">
                 <p class='display-4'>Sign In</p>
                 <form>
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                      <label for="f_email" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="f_email" aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="f_password" class="form-label">Password</label>
+                    <div class="input-group mb-3">
+                      <input type="password" class="form-control" id="f_password" aria-describedby="button-addon">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-light" type="button" id="button-addon"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                      </div>
                     </div>
                     <button type="button" class="btn btn-outline-warning">Sign In</button>
                 </form><br/>
                 <a href="/signup" class="right">Sign Up</a>
                 <a href="/pass" class="left">Forgot a password?</a>
             </div>
+          </div>
         <div class="wave2 spacer"></div>
     </div>
 </body>

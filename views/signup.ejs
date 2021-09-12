@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="wave spacer"></div>
+        <div id="flexb">
+            <div><p class="display-4" id="name">Chesslink</p></div>
+            <div class="login">
+                <p class="display-4">Sign Up</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="f_username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="f_username" aria-describedby="emailHelp" placeholder="johndoe123">
+                    </div>
+                    <div class="mb-3">
+                    <label for="f_email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="f_email" aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                    </div>
+                    <label for="f_password" class="form-label">Password</label>
+                    <div class="input-group mb-3">
+                    <input type="password" class="form-control" id="f_password" aria-describedby="button-addon">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-light" type="button" id="button-addon"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                    </div>
+                    </div>
+                    <label for="f_repeat_password" class="form-label">Repeat Password</label>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="f_repeat_password" aria-describedby="button-addon-2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-light" type="button" id="button-addon-2"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-warning">Sign Up</button>
+                </form><br/>
+                Already have an account?&nbsp;<a href="/">Sign In</a>
+            </div>
+            <div id="logo"><img src="logo.svg" /></div>
+        </div>
+        <div class="wave2 spacer"></div>
+    </div>
+</body>
+</html>

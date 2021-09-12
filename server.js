@@ -5,10 +5,12 @@ const compression = require('compression')
 const path = require('path')
 const helmet = require('helmet')
 const app = express()
+var session = require('express-session')
 
 //Require routes
 const main = require('./routes/app')
 const users = require('./routes/users')
+const auth = require('./routes/auth')
 
 app.use(cors())
 app.use(helmet({
@@ -21,7 +23,11 @@ app.use(helmet({
             ],
             styleSrc: [
                 "'self'",
-                'https://cdn.jsdelivr.net'
+                'https://cdn.jsdelivr.net',
+                'https://cdnjs.cloudflare.com/'
+            ],
+            fontSrc: [
+                'https://cdnjs.cloudflare.com/'
             ]
         }
     },
@@ -36,6 +42,7 @@ app.use(express.static(path.join(__dirname,"public")));
 //Re-route
 app.use('/', main)
 app.use('/api/users', users)
+app.use('/auth', auth)
 
 
 
