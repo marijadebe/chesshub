@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <script src="./js/eyescript.js"></script>
     <div id="wrapper">
         <div class="wave spacer"></div>
         <div id="flexb">
-            <div><p class="display-4" id="name">Chesslink</p></div>
+            <div id="name"><p class="display-4">Chesslink</p>
+                <p class="lead">Web application for real-time chatting,<br/> videocalls and playing chess.</p></div>
             <div class="login">
                 <p class="display-4">Sign Up</p>
                 <form>
@@ -25,23 +27,34 @@
                     <div class="input-group mb-3">
                     <input type="password" class="form-control" id="f_password" aria-describedby="button-addon">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-light" type="button" id="button-addon"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                        <button class="btn btn-outline-light" type="button" id="button-addon" onClick="changeEye(1)"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
                     </div>
                     </div>
                     <label for="f_repeat_password" class="form-label">Repeat Password</label>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" id="f_repeat_password" aria-describedby="button-addon-2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-light" type="button" id="button-addon-2"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                            <button class="btn btn-outline-light" type="button" id="button-addon-2" onClick="changeEye(2)"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-outline-warning">Sign Up</button>
+                    <button type="button" class="btn btn-outline-warning" id="reg">Sign Up</button>
                 </form><br/>
                 Already have an account?&nbsp;<a href="/">Sign In</a>
             </div>
             <div id="logo"><img src="logo.svg" /></div>
         </div>
         <div class="wave2 spacer"></div>
+        <script type="module">
+            import createAccount from "./js/register.js";
+            var register = () => {
+                var username = $('#f_username').val();
+                var email = $('#f_email').val();
+                var password = $('#f_password').val();
+                var repeat_password = $('#f_repeat_password').val();
+                createAccount(username,email,password,repeat_password);
+            }
+            $('#reg').on('click',register);
+        </script>
     </div>
 </body>
 </html>

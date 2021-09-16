@@ -5,6 +5,7 @@ const compression = require('compression')
 const path = require('path')
 const helmet = require('helmet')
 const app = express()
+const crypto = require('crypto')
 var session = require('express-session')
 
 //Require routes
@@ -19,12 +20,14 @@ app.use(helmet({
             defaultSrc: ["'self'"],
             scriptSrc: [
                 "'self'",
-                'https://cdn.jsdelivr.net'
+                "'unsafe-inline'",
+                'https://cdn.jsdelivr.net',
+                'https://code.jquery.com'
             ],
             styleSrc: [
                 "'self'",
                 'https://cdn.jsdelivr.net',
-                'https://cdnjs.cloudflare.com/'
+                'https://cdnjs.cloudflare.com/',
             ],
             fontSrc: [
                 'https://cdnjs.cloudflare.com/'
@@ -38,6 +41,12 @@ app.use(helmet.hidePoweredBy());
 app.set('views', path.join(__dirname,"views"))
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname,"public")));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))  
 
 //Re-route
 app.use('/', main)

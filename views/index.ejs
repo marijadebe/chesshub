@@ -6,9 +6,13 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <script src="./js/eyescript.js"></script>
+    <script src="./js/login.js" type="module"></script>
     <div id="wrapper">
         <div class="wave spacer"></div>
         <div id="flexb">
+          <div id="name"><p class="display-4">Chesslink</p>
+            <p class="lead">Web application for real-time chatting,<br/> videocalls and playing chess.</p></div>
             <div class="login">
                 <p class='display-4'>Sign In</p>
                 <form>
@@ -20,7 +24,7 @@
                     <div class="input-group mb-3">
                       <input type="password" class="form-control" id="f_password" aria-describedby="button-addon">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-light" type="button" id="button-addon"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                        <button class="btn btn-outline-light" type="button" id="button-addon" onclick="changeEye(1)"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
                       </div>
                     </div>
                     <button type="button" class="btn btn-outline-warning">Sign In</button>
