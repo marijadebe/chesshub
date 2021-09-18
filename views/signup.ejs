@@ -14,24 +14,24 @@
                 <p class="lead">Web application for real-time chatting,<br/> videocalls and playing chess.</p></div>
             <div class="login">
                 <p class="display-4">Sign Up</p>
-                <form>
-                    <div class="mb-3">
+                <form class="needs-validation" novalidate>
+                    <div class="mb-3" id="d_username">
                         <label for="f_username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="f_username" aria-describedby="emailHelp" placeholder="johndoe123">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" id="d_email">
                     <label for="f_email" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="f_email" aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
                     </div>
                     <label for="f_password" class="form-label">Password</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 has-validation" id="d_password">
                     <input type="password" class="form-control" id="f_password" aria-describedby="button-addon">
                     <div class="input-group-append">
                         <button class="btn btn-outline-light" type="button" id="button-addon" onClick="changeEye(1)"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
                     </div>
                     </div>
                     <label for="f_repeat_password" class="form-label">Repeat Password</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" id="d_repeat_password">
                         <input type="password" class="form-control" id="f_repeat_password" aria-describedby="button-addon-2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-light" type="button" id="button-addon-2" onClick="changeEye(2)"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>

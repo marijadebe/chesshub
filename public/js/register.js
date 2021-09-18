@@ -4,9 +4,19 @@ var createAccount = async (username,email,password,repeatpassword) => {
     if(password == repeatpassword) {
         var user = new User(username,email,password);
         var response = await putData(user);
-        console.log(response);
+        switch(response.error) {
+            case "invalid email":
+                $('#d_email').append("<div class='invalid-feedback'>Invalid email address entered.</div>");
+                $('.needs-validation').addClass("was-validated");
+                break;
+            case "invalid username":
+                $('#d_username').append("<div class='invalid-feedback'>Invalid username entered.</div>");
+                $('.needs-validation').addClass("was-validated");
+                break;
+        }
     }else {
-        console.log("passwords must be same");
+        $('#d_password').append("<div class='invalid-feedback'>Passwords do not match.</div>");
+        $('.needs-validation').addClass("was-validated");
     }
 }
 

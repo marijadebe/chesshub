@@ -3,10 +3,14 @@ const cors = require('cors')
 const express = require('express')
 const compression = require('compression')
 const path = require('path')
+const http = require('http')
 const helmet = require('helmet')
-const app = express()
 const crypto = require('crypto')
 var session = require('express-session')
+
+const app = express()
+const server = http.createServer(app)
+var io = require('socket.io')(server)
 
 //Require routes
 const main = require('./routes/app')
@@ -31,22 +35,27 @@ app.use(helmet({
             ],
             fontSrc: [
                 'https://cdnjs.cloudflare.com/'
+            ],
+            imgSrc: [
+                "'self'",
+                "data:"
             ]
         }
     },
 }))
+var sessionMiddleware = session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+})
 app.use(compression())
 app.use(express.json())
 app.use(helmet.hidePoweredBy());
 app.set('views', path.join(__dirname,"views"))
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname,"public")));
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  }))  
+app.use(sessionMiddleware)  
 
 //Re-route
 app.use('/', main)
@@ -55,4 +64,4 @@ app.use('/auth', auth)
 
 
 
-app.listen(process.env.port || 3000)
+server.listen(process.env.port || 3000)
