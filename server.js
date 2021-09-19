@@ -45,9 +45,8 @@ app.use(helmet({
 }))
 var sessionMiddleware = session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    resave: true,
+    saveUninitialized: true
 })
 app.use(compression())
 app.use(express.json())

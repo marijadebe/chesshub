@@ -37,8 +37,17 @@ var postReg = (req,res) => {
 }
 
 
-var postLog = (req,res) => {
-
+var postLog = async (req,res) => {
+    var email = req.body.email;
+    var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
+    var data = await authModel.getUser(email);
+    if(data.password == password && data.validated == 1) {
+      req.session.login = true;
+      req.session.username = data.username;
+      res.send({success:"success"})
+    }else {
+      res.status(418).send({error:"error"})
+    }
 }
 
 module.exports = {postReg,postLog}

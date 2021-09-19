@@ -7,7 +7,6 @@
 </head>
 <body>
     <script src="./js/eyescript.js"></script>
-    <script src="./js/login.js" type="module"></script>
     <div id="wrapper">
         <div class="wave spacer"></div>
         <div id="flexb">
@@ -27,7 +26,7 @@
                         <button class="btn btn-outline-light" type="button" id="button-addon" onclick="changeEye(1)"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-outline-warning">Sign In</button>
+                    <button type="button" class="btn btn-outline-warning" id="log">Sign In</button>
                 </form><br/>
                 <a href="/signup" class="right">Sign Up</a>
                 <a href="/pass" class="left">Forgot a password?</a>
@@ -35,5 +34,14 @@
           </div>
         <div class="wave2 spacer"></div>
     </div>
+    <script type="module">
+        import loginAccount from "./js/login.js";
+        var login = () => {
+          var email = $('#f_email').val();
+          var password = $('#f_password').val();
+          loginAccount(email,password);
+        }
+        $('#log').on('click',login);
+    </script>
 </body>
 </html>
