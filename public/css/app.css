@@ -1,0 +1,65 @@
+html,body {
+    background: #001220;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+#wrapper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "a a a a a b b"
+    "a a a a a b b"
+    "c c d d d d d"
+    "c c d d d d d";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+    padding: 10px;
+    z-index: 1000;
+}
+#dashboard,#players,#settings,#statistics {
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;
+    opacity: 0.9;
+    z-index: 1000;
+}
+#dashboard:hover,#players:hover,#settings:hover,#statistics:hover {
+    opacity: 1;
+}
+#dashboard {
+    grid-area: a;
+    background-color: #0c2b42;
+}
+#players {
+    grid-area: b;
+    background-color: #0c2b42;
+    border-radius: 10px;
+}
+#settings {
+    grid-area: c;
+    background-color: #0c2b42;
+    border-radius: 10px;
+}
+#statistics {
+    grid-area: d;
+    background-color: #0c2b42;
+    border-radius: 10px;
+}
+#logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    opacity: 0.5;
+}
+#logoimg {
+    width: 200px;
+    height: 200px;
+}
+#logout {
+    float:right;
+}

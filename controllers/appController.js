@@ -21,7 +21,11 @@ var getSignup = (req,res) => {
 }
 var getMain = (req,res) => {
     if(req.session.login) {
-        res.render('main.ejs',{username:req.session.username})
+        if(req.session.verified == 1) {
+            res.render('main.ejs',{username:req.session.username})
+        }else {
+            res.render('verify.ejs',{username:req.session.username})
+        }
     }else {
         res.redirect("/")
     }

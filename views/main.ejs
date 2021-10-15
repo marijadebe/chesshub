@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <%- include('partials/head') %>
+    <link rel="stylesheet" href="./css/app.css">
+    <script src="/socket.io/socket.io.js"></script>
     <title>Chesslink</title>
 </head>
 <body>
-    <%=username %>
+    <div id="logo"><img src="logo.svg" id="logoimg"></div>
+    <div id="wrapper">
+        <div id="dashboard">
+            <div><button class="btn btn-outline-danger btn-sm" id="logout" onclick="logout()">Sign out</button><p class="display-6">Dashboard</p></div>
+            <%=username %>
+        </div>
+        <div id="players">
+            <p class="display-6">Players</p>
+        </div>
+        <div id="settings">
+            <p class="display-6">Settings</p>
+        </div>
+        <div id="statistics">
+            <p class="display-6">Statistics</p>
+        </div>
+    
+    </div>    
+    <script>
+        const socket = io();
+        socket.on("connect", () => {
+            
+        });
+        var logout = () => {
+            socket.emit("logout")
+            window.location.replace("/");
+        }
+    </script>
 </body>
 </html>

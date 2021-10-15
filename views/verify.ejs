@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <title>Verify Account</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="verify.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="wave spacer"></div>
+        <div id="flexb">
+            <div id="anno">
+                <p class="display-6">We have sent you an email to verify your account.</p>
+                <form>
+                    <input type="text" class="form-control" placeholder="Enter your verification code here" id="code">
+                    <small class="text-muted">&nbsp;Keep your verification code private.</small><br/><br/>
+                    <button type="button" class="btn btn-outline-success" id="ver">Verify</button>
+                </form>
+
+            </div>
+        </div>
+    <div class="wave2 spacer"></div>
+    <script type="module">
+        import verifyAccount from "./js/verify.js";
+        var verify = () => {
+          var code = $('#code').val();
+          verifyAccount(code);
+        }
+        $('#ver').on('click',verify);
+    </script>
+    </div>
+</body>
+</html>

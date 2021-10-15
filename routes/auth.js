@@ -4,6 +4,7 @@ const authController = require('../controllers/authController')
 
 router.post('/reg', authController.postReg)
 router.post('/log', authController.postLog)
+router.post('/val', authController.postVerify)
 
 
 

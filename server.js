@@ -7,11 +7,11 @@ const http = require('http')
 const helmet = require('helmet')
 const crypto = require('crypto')
 var session = require('express-session')
+const socketController = require('./controllers/socketController')
 
 const app = express()
 const server = http.createServer(app)
 var io = require('socket.io')(server)
-
 //Require routes
 const main = require('./routes/app')
 const users = require('./routes/users')
@@ -48,6 +48,10 @@ var sessionMiddleware = session({
     resave: true,
     saveUninitialized: true
 })
+io.use((socket,next)=> {
+    sessionMiddleware(socket.request,{},next)
+})
+io.on("connection", socketController.onConnect);
 app.use(compression())
 app.use(express.json())
 app.use(helmet.hidePoweredBy());
