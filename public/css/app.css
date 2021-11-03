@@ -62,4 +62,14 @@ html,body {
 }
 #logout {
     float:right;
+    margin: 5px;
+}
+.butt {
+    flex: 50%;
+    padding: 5px;
+}
+#btnpanel {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
 }

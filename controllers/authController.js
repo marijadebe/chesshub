@@ -13,7 +13,6 @@ var transporter = nodemailer.createTransport({
 
 var postReg = async (req,res) => {
     var regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    console.log(req.body);
     var resource = await authModel.getUser(req.body.email, req.body.username);
     if(resource.error) {
       res.status(418).send({error:"exists"})
@@ -37,7 +36,7 @@ var postReg = async (req,res) => {
       };
       transporter.sendMail(mailOptions);
       req.session.login = true;
-      req.session.username=username.username;
+      req.session.username=username;
       req.session.verified = 0;
       res.send({success:"success"})
   }
